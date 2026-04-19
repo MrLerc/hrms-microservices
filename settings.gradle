@@ -1,0 +1,7 @@
+rootProject.name = 'hrms-microservices'
+
+include 'guest-service'
+include 'room-service'
+include 'payment-service'
+include 'booking-service'
+include 'api-gateway'
