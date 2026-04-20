@@ -1,4 +1,4 @@
-package com.example.apigateway;
+package com.champsoft.hrms.apigateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
