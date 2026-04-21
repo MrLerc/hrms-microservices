@@ -7,19 +7,22 @@ spring:
         - id: guests
           uri: http://localhost:8081
           predicates:
-            - Path=/api/guests/**
+            - Path=/api/guests,/api/guests/**
+
         - id: rooms
           uri: http://localhost:8082
           predicates:
-            - Path=/api/rooms/**
-        - id: payments
+            - Path=/api/rooms,/api/rooms/**
+
+        - id: bookings
           uri: http://localhost:8083
           predicates:
-            - Path=/api/payments/**
-        - id: bookings
+            - Path=/api/bookings,/api/bookings/**
+
+        - id: payments
           uri: http://localhost:8084
           predicates:
-            - Path=/api/bookings/**
+            - Path=/api/payments,/api/payments/**
 
 server:
   port: 8080

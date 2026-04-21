@@ -1,5 +1,6 @@
 package com.champsoft.hrms.booking.web;
 
+import com.champsoft.hrms.booking.web.ApiErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
