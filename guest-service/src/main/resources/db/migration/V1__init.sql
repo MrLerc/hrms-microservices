@@ -3,12 +3,14 @@
 
 CREATE TABLE IF NOT EXISTS guests (
                                       id VARCHAR(36) PRIMARY KEY,
-    full_name VARCHAR(255) NOT NULL,
-    address VARCHAR(255) NOT NULL,
+    full_name VARCHAR(120) NOT NULL,
+    address VARCHAR(255),
     status VARCHAR(20) NOT NULL
     );
 
 INSERT INTO guests (id, full_name, address, status) VALUES
-    ('guest-1', 'John Doe', '123 Main St, Montreal', 'ACTIVE'),
-    ('guest-2', 'Jane Doe', '456 Queen St, Montreal', 'ACTIVE'),
-    ('guest-3', 'Joanne Doe', '789 King St, Montreal', 'INACTIVE');
+                                                        ('guest-1', 'John Smith', 'Brossard, QC', 'ACTIVE'),
+                                                        ('guest-2', 'Sarah Johnson', 'Longueuil, QC', 'ACTIVE'),
+                                                        ('guest-3', 'Michael Brown', 'Brossard, QC', 'ACTIVE'),
+                                                        ('guest-4', 'Emily Davis', 'Montreal, QC', 'ACTIVE'),
+                                                        ('guest-5', 'David Wilson', 'Longueuil, QC', 'ACTIVE');

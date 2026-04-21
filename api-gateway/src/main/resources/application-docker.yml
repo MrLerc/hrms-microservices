@@ -10,22 +10,22 @@ spring:
             - id: guest-service
               uri: http://guest-service:8080
               predicates:
-                - Path=/api/guest/**
+                - Path=/api/guests,/api/guests/**
 
             - id: room-service
               uri: http://room-service:8080
               predicates:
-                - Path=/api/room/**
+                - Path=/api/rooms,/api/rooms/**
 
             - id: payment-service
               uri: http://payment-service:8080
               predicates:
-                - Path=/api/payment/**
+                - Path=/api/payments,/api/payments/**
 
             - id: booking-service
               uri: http://booking-service:8080
               predicates:
-                - Path=/api/booking/**
+                - Path=/api/bookings,/api/bookings/**
 
 server:
   port: 8080

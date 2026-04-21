@@ -10,6 +10,8 @@ CREATE TABLE IF NOT EXISTS rooms (
     );
 
 INSERT INTO rooms (id, room_number, room_type, price_per_night, status) VALUES
-    ('room-1', '101', 'SINGLE', 100.0, 'AVAILABLE'),
-    ('room-2', '102', 'DOUBLE', 150.0, 'AVAILABLE'),
-    ('room-3', '103', 'SUITE', 250.0, 'OCCUPIED');
+                                                                            ('room-1', '101', 'SINGLE', 120.0, 'AVAILABLE'),
+                                                                            ('room-2', '102', 'DOUBLE', 150.0, 'AVAILABLE'),
+                                                                            ('room-3', '103', 'SUITE', 250.0, 'AVAILABLE'),
+                                                                            ('room-4', '104', 'SINGLE', 110.0, 'AVAILABLE'),
+                                                                            ('room-5', '105', 'DOUBLE', 160.0, 'AVAILABLE');
