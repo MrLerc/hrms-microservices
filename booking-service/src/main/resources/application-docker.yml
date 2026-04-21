@@ -1,0 +1,7 @@
+services:
+  guests:
+    base-url: http://guest-service:8080
+  rooms:
+    base-url: http://room-service:8080
+  payments:
+    base-url: http://payment-service:8080

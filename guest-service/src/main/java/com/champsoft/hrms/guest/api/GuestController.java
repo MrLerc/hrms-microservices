@@ -1,5 +1,7 @@
 package com.champsoft.hrms.guest.api;
 
+import com.champsoft.hrms.guest.api.dto.CreateGuestRequest;
+import com.champsoft.hrms.guest.api.dto.UpdateGuestRequest;
 import com.champsoft.hrms.guest.api.mapper.GuestApiMapper;
 import com.champsoft.hrms.guest.application.service.GuestCrudService;
 import com.champsoft.hrms.guest.application.service.GuestEligibilityService;

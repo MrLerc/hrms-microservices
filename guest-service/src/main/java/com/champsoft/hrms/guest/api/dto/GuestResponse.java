@@ -1,4 +1,4 @@
-package com.champsoft.hrms.guest.api;
+package com.champsoft.hrms.guest.api.dto;
 
 public record GuestResponse(
         String id,

@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: guest-service
+              uri: http://guest-service:8080
+              predicates:
+                - Path=/api/guest/**
+
+            - id: room-service
+              uri: http://room-service:8080
+              predicates:
+                - Path=/api/room/**
+
+            - id: payment-service
+              uri: http://payment-service:8080
+              predicates:
+                - Path=/api/payment/**
+
+            - id: booking-service
+              uri: http://booking-service:8080
+              predicates:
+                - Path=/api/booking/**
+
+server:
+  port: 8080
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    urls:
+      - name: guest-service
+        url: http://localhost:8081/v3/api-docs
+      - name: room-service
+        url: http://localhost:8082/v3/api-docs
+      - name: payment-service
+        url: http://localhost:8083/v3/api-docs
+      - name: booking-service
+        url: http://localhost:8084/v3/api-docs

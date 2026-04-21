@@ -1,0 +1,140 @@
+version: "3.9"
+
+services:
+  # ---------------- DATABASES ----------------
+  guest-db:
+    image: postgres:18.3
+    container_name: guest-db
+    environment:
+      POSTGRES_DB: guest_db
+      POSTGRES_USER: hrms
+      POSTGRES_PASSWORD: hrms
+    ports:
+      - "5433:5432"
+    volumes:
+      - guest_pg_data:/var/lib/postgresql
+
+  room-db:
+    image: postgres:18.3
+    container_name: room-db
+    environment:
+      POSTGRES_DB: room_db
+      POSTGRES_USER: hrms
+      POSTGRES_PASSWORD: hrms
+    ports:
+      - "5434:5432"
+    volumes:
+      - room_pg_data:/var/lib/postgresql
+
+  payment-db:
+    image: postgres:18.3
+    container_name: payment-db
+    environment:
+      POSTGRES_DB: payment_db
+      POSTGRES_USER: hrms
+      POSTGRES_PASSWORD: hrms
+    ports:
+      - "5435:5432"
+    volumes:
+      - payment_pg_data:/var/lib/postgresql
+
+  booking-db:
+    image: postgres:18.3
+    container_name: booking-db
+    environment:
+      POSTGRES_DB: booking_db
+      POSTGRES_USER: hrms
+      POSTGRES_PASSWORD: hrms
+    ports:
+      - "5436:5432"
+    volumes:
+      - booking_pg_data:/var/lib/postgresql
+
+  # ---------------- SERVICES ----------------
+  guest-service:
+    build: ./guest-service
+    container_name: guest-service
+    environment:
+      SPRING_PROFILES_ACTIVE: pg
+      POSTGRES_HOST: guest-db
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: guest_db
+      POSTGRES_USER: hrms
+      POSTGRES_PASSWORD: hrms
+      SERVER_PORT: 8080
+    depends_on:
+      - guest-db
+    ports:
+      - "8081:8080"
+
+  room-service:
+    build: ./room-service
+    container_name: room-service
+    environment:
+      SPRING_PROFILES_ACTIVE: pg
+      POSTGRES_HOST: room-db
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: room_db
+      POSTGRES_USER: hrms
+      POSTGRES_PASSWORD: hrms
+      SERVER_PORT: 8080
+    depends_on:
+      - room-db
+    ports:
+      - "8082:8080"
+
+  payment-service:
+    build: ./payment-service
+    container_name: payment-service
+    environment:
+      SPRING_PROFILES_ACTIVE: pg
+      POSTGRES_HOST: payment-db
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: payment_db
+      POSTGRES_USER: hrms
+      POSTGRES_PASSWORD: hrms
+      SERVER_PORT: 8080
+    depends_on:
+      - payment-db
+    ports:
+      - "8083:8080"
+
+  booking-service:
+    build: ./booking-service
+    container_name: booking-service
+    environment:
+      SPRING_PROFILES_ACTIVE: pg,docker
+      POSTGRES_HOST: booking-db
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: booking_db
+      POSTGRES_USER: hrms
+      POSTGRES_PASSWORD: hrms
+      SERVER_PORT: 8080
+    depends_on:
+      - booking-db
+      - guest-service
+      - room-service
+      - payment-service
+    ports:
+      - "8084:8080"
+
+  # ---------------- API GATEWAY ----------------
+  api-gateway:
+    build: ./api-gateway
+    container_name: api-gateway
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SERVER_PORT: 8080
+    depends_on:
+      - guest-service
+      - room-service
+      - payment-service
+      - booking-service
+    ports:
+      - "8080:8080"
+
+volumes:
+  guest_pg_data:
+  room_pg_data:
+  payment_pg_data:
+  booking_pg_data:

@@ -1,6 +1,6 @@
 package com.champsoft.hrms.guest.api.mapper;
 
-import com.champsoft.hrms.guest.api.GuestResponse;
+import com.champsoft.hrms.guest.api.dto.GuestResponse;
 import com.champsoft.hrms.guest.domain.model.Guest;
 
 public class GuestApiMapper {
