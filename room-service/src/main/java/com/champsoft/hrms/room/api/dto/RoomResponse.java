@@ -1,4 +1,4 @@
-package com.champsoft.hrms.room.api;
+package com.champsoft.hrms.room.api.dto;
 
 import com.champsoft.hrms.room.domain.model.RoomType;
 

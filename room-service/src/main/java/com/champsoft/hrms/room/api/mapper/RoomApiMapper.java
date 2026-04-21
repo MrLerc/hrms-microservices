@@ -1,6 +1,6 @@
 package com.champsoft.hrms.room.api.mapper;
 
-import com.champsoft.hrms.room.api.RoomResponse;
+import com.champsoft.hrms.room.api.dto.RoomResponse;
 import com.champsoft.hrms.room.domain.model.Room;
 
 public class RoomApiMapper {

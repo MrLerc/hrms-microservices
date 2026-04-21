@@ -1,4 +1,4 @@
-package com.champsoft.hrms.booking.api;
+package com.champsoft.hrms.booking.api.dto;
 
 import java.time.LocalDate;
 

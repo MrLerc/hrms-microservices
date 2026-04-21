@@ -1,5 +1,6 @@
 package com.champsoft.hrms.room.application.service;
 
+import com.champsoft.hrms.room.application.exception.DuplicateRoomNumberException;
 import com.champsoft.hrms.room.application.port.out.RoomRepositoryPort;
 import com.champsoft.hrms.room.domain.model.*;
 
@@ -19,6 +20,11 @@ public class RoomCrudService {
 
     @Transactional
     public Room create(String roomNumber, double pricePerNight, RoomType roomType) {
+
+        if (repo.existsByRoomNumber(roomNumber)) {
+            throw new DuplicateRoomNumberException("Room number already exists: " + roomNumber);
+        }
+
         var room = new Room(
                 RoomId.newId(),
                 new RoomNumber(roomNumber),

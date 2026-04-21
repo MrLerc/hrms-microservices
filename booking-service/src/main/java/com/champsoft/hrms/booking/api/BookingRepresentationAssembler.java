@@ -1,6 +1,6 @@
 package com.champsoft.hrms.booking.api;
 
-import com.champsoft.hrms.booking.api.BookingResponse;
+import com.champsoft.hrms.booking.api.dto.BookingResponse;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.stereotype.Component;

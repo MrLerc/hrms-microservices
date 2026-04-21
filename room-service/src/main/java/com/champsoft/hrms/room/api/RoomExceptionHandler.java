@@ -1,5 +1,6 @@
 package com.champsoft.hrms.room.api;
 
+import com.champsoft.hrms.room.application.exception.DuplicateRoomNumberException;
 import com.champsoft.hrms.room.application.exception.RoomNotFoundException;
 import com.champsoft.hrms.room.domain.exception.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,6 +16,14 @@ public class RoomExceptionHandler {
     @ExceptionHandler(RoomNotFoundException.class)
     public ResponseEntity<String> notFound(RoomNotFoundException ex, HttpServletRequest req) {
         return build(HttpStatus.NOT_FOUND, ex);
+    }
+
+    @ExceptionHandler(DuplicateRoomNumberException.class)
+    public ResponseEntity<?> handleDuplicateRoomNumber(DuplicateRoomNumberException ex,
+                                                       HttpServletRequest req) {
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(ex.getMessage());
     }
 
     @ExceptionHandler(RoomAlreadyOccupiedException.class)

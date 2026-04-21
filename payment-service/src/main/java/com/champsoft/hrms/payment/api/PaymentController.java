@@ -1,5 +1,7 @@
 package com.champsoft.hrms.payment.api;
 
+import com.champsoft.hrms.payment.api.dto.CreatePaymentRequest;
+import com.champsoft.hrms.payment.api.dto.UpdatePaymentRequest;
 import com.champsoft.hrms.payment.api.mapper.PaymentApiMapper;
 import com.champsoft.hrms.payment.application.service.PaymentCrudService;
 import com.champsoft.hrms.payment.application.service.PaymentEligibilityService;

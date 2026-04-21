@@ -1,6 +1,6 @@
 package com.champsoft.hrms.payment.api.mapper;
 
-import com.champsoft.hrms.payment.api.PaymentResponse;
+import com.champsoft.hrms.payment.api.dto.PaymentResponse;
 import com.champsoft.hrms.payment.domain.model.Payment;
 
 public class PaymentApiMapper {

@@ -1,4 +1,4 @@
-package com.champsoft.hrms.payment.api;
+package com.champsoft.hrms.payment.api.dto;
 
 import jakarta.validation.constraints.NotBlank;
 

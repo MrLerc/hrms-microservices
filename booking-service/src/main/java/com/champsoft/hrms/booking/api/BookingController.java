@@ -1,6 +1,7 @@
 package com.champsoft.hrms.booking.api;
 
-import com.champsoft.hrms.booking.api.*;
+import com.champsoft.hrms.booking.api.dto.BookRoomRequest;
+import com.champsoft.hrms.booking.api.dto.BookingResponse;
 import com.champsoft.hrms.booking.api.mapper.BookingApiMapper;
 import com.champsoft.hrms.booking.application.service.*;
 import jakarta.validation.Valid;

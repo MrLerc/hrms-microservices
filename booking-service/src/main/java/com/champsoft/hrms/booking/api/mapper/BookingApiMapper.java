@@ -1,6 +1,6 @@
 package com.champsoft.hrms.booking.api.mapper;
 
-import com.champsoft.hrms.booking.api.BookingResponse;
+import com.champsoft.hrms.booking.api.dto.BookingResponse;
 import com.champsoft.hrms.booking.domain.model.Booking;
 
 public class BookingApiMapper {

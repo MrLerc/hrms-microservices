@@ -1,5 +1,7 @@
 package com.champsoft.hrms.room.api;
 
+import com.champsoft.hrms.room.api.dto.CreateRoomRequest;
+import com.champsoft.hrms.room.api.dto.UpdateRoomRequest;
 import com.champsoft.hrms.room.api.mapper.RoomApiMapper;
 import com.champsoft.hrms.room.application.service.RoomCrudService;
 import com.champsoft.hrms.room.application.service.RoomEligibilityService;
