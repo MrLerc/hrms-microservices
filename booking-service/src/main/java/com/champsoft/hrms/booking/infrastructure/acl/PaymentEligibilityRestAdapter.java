@@ -12,7 +12,7 @@ public class PaymentEligibilityRestAdapter implements PaymentEligibilityPort {
 
     private final RestTemplate restTemplate;
 
-    @Value("https://localhost:8083")
+    @Value("${services.payments.base-url}")
     private String paymentsBaseUrl;
 
     public PaymentEligibilityRestAdapter(RestTemplate restTemplate) {

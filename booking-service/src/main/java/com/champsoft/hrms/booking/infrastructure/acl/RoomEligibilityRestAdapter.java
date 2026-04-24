@@ -12,7 +12,7 @@ public class RoomEligibilityRestAdapter implements RoomEligibilityPort {
 
     private final RestTemplate restTemplate;
 
-    @Value("https://localhost:8082")
+    @Value("${services.rooms.base-url}")
     private String roomsBaseUrl;
 
     public RoomEligibilityRestAdapter(RestTemplate restTemplate) {

@@ -12,7 +12,7 @@ public class GuestEligibilityRestAdapter implements GuestEligibilityPort {
 
     private final RestTemplate restTemplate;
 
-    @Value("http://localhost:8081")
+    @Value("${services.guests.base-url}")
     private String guestsBaseUrl;
 
     public GuestEligibilityRestAdapter(RestTemplate restTemplate) {
