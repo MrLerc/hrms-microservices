@@ -1,5 +1,6 @@
 package com.champsoft.hrms.payment.application.service;
 
+import com.champsoft.hrms.payment.application.exception.PaymentNotFoundException;
 import com.champsoft.hrms.payment.application.port.out.PaymentRepositoryPort;
 import com.champsoft.hrms.payment.domain.model.*;
 
@@ -40,13 +41,13 @@ public class PaymentCrudService {
     @Transactional(readOnly = true)
     public Payment getById(String id) {
         return repo.findById(PaymentId.of(id))
-                .orElseThrow(() -> new IllegalArgumentException("Payment not found: " + id));
+                .orElseThrow(() -> new PaymentNotFoundException("Payment not found: " + id));
     }
 
     @Transactional(readOnly = true)
     public Payment getByCardNumber(String cardNumber) {
         return repo.findByCardNumber(new CardNumber(cardNumber))
-                .orElseThrow(() -> new IllegalArgumentException("Payment not found for card: " + cardNumber));
+                .orElseThrow(() -> new PaymentNotFoundException("Payment not found for card: " + cardNumber));
     }
 
     @Transactional(readOnly = true)

@@ -1,6 +1,7 @@
 package com.champsoft.hrms.room.application.service;
 
 import com.champsoft.hrms.room.application.exception.DuplicateRoomNumberException;
+import com.champsoft.hrms.room.application.exception.RoomNotFoundException;
 import com.champsoft.hrms.room.application.port.out.RoomRepositoryPort;
 import com.champsoft.hrms.room.domain.model.*;
 
@@ -36,7 +37,7 @@ public class RoomCrudService {
     @Transactional(readOnly = true)
     public Room getById(String id) {
         return repo.findById(RoomId.of(id))
-                .orElseThrow(() -> new IllegalArgumentException("Room not found: " + id));
+                .orElseThrow(() -> new RoomNotFoundException("Room not found: " + id));
     }
 
     @Transactional(readOnly = true)
